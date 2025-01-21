@@ -4,17 +4,20 @@ const listElement = document.getElementById('list')
 
 let notes = [
     {
-        title:'XYU',
+        title:'Купить бумер',
         completed: false
     },
     {
-        title:'PIZDA',
+        title:'Напоминать себе что надо....',
         completed: true
     }
 ]
 
 function render() {
     listElement.innerHTML = ''
+    if(notes.length === 0){
+        listElement.innerHTML = `<p>Нет заметок</p>`
+    }
     for (let i = 0; i < notes.length; i++) {
         listElement.insertAdjacentHTML('beforeend',getNoteTemplate(notes[i], i))
     }
@@ -45,7 +48,7 @@ listElement.onclick = function (event) {
         if (type === 'toggle') {
             notes[index].completed = !notes[index].completed
         } else if (type === 'remove') {
-            notes.slice(index, 1)
+            notes.splice(index, 1)
         }
 
         render()
@@ -58,7 +61,7 @@ function getNoteTemplate(note, index) {
     <span class=${note.completed ? "text-decoration-line-through": ""}>${note.title}</span>
     <span>
       <span class="btn btn-small btn-${note.completed ? "warning" : "success"}" data-index='${index}' data-type="toggle">&check;</span>
-      <span class="btn btn-small btn-danger" data-type="remove">&times;</span>
+      <span class="btn btn-small btn-danger" data-index='${index}' data-type="remove">&times;</span>
     </span>
     </li>
     `
