@@ -3,14 +3,17 @@ const craeteBtn = document.getElementById('create')
 const listElement = document.getElementById('list')
 
 let notes = [
+    
     {
         title:'Купить бумер',
         completed: false
     },
+
     {
         title:'Напоминать себе что надо....',
         completed: true
     }
+
 ]
 
 function render() {
