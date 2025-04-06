@@ -2,19 +2,7 @@ const inputElement = document.getElementById('title')
 const craeteBtn = document.getElementById('create')
 const listElement = document.getElementById('list')
 
-let notes = [
-    
-    {
-        title:'Купить бумер',
-        completed: false
-    },
-
-    {
-        title:'Напоминать себе что надо....',
-        completed: true
-    }
-
-]
+let notes = []
 
 function render() {
     listElement.innerHTML = ''
