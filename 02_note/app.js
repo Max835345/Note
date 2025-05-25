@@ -4,7 +4,6 @@ const listElement = document.getElementById('list')
 
 let notes = []
 
-
 function render() {
     listElement.innerHTML = ''
     
